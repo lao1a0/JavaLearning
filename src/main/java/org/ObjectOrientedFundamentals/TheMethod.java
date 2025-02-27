@@ -184,12 +184,56 @@ public class TheMethod {
         ming.setAge(12);
         System.out.println(ming.getAge());
     }
+    public static void example7(){
+        class Person {
+            private String name;
+            private int age;
+
+            public Person(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            public Person(String name) {
+                this(name, 18); // 调用另一个构造方法Person(String, int)
+            }
+
+            public Person() {
+                this("Unnamed"); // 调用另一个构造方法Person(String)
+            }
+        }
+
+    }
+    public static void example8(){
+        class Person {
+            private String name;
+            private int age;
+
+            public Person(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+            public String getName() {
+                return name;
+            }
+
+            public int getAge() {
+                return age;
+            }
+        }
+        // TODO: 给Person增加构造方法:
+        Person ming = new Person("小明", 12);
+        System.out.println(ming.getName());
+        System.out.println(ming.getAge());
+
+    }
     public static void main(String[] args) {
 //        example1();
 //        example2();
 //        example3();
 //        example4();
 //        example5();
-        example6();
+//        example6();
+        example8();
     }
 }
