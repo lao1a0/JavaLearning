@@ -1,5 +1,8 @@
 package JavaCoreClasses;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.HexFormat;
 import java.util.Random;
 
@@ -9,8 +12,9 @@ public class Commonly_Used_Utility_Classes {
 //        example2();
 //        example3();
 //        example4();
-        example5();
-
+//        example5();
+//        example6();
+        example7();
     }
 
     public static void example1() {
@@ -84,5 +88,23 @@ public class Commonly_Used_Utility_Classes {
             System.out.println(rr.nextInt(100));
         }
         // 51, 80, 41, 28, 55...
+    }
+
+    public static void example6() {
+        SecureRandom sr = new SecureRandom();
+        System.out.println(sr.nextInt(100));
+    }
+
+    public static void example7() {
+
+        SecureRandom sr = null;
+        try {
+            sr = SecureRandom.getInstanceStrong(); // 获取高强度安全随机数生成器
+        } catch (NoSuchAlgorithmException e) {
+            sr = new SecureRandom(); // 获取普通的安全随机数生成器
+        }
+        byte[] buffer = new byte[16];
+        sr.nextBytes(buffer); // 用安全随机数填充buffer
+        System.out.println(Arrays.toString(buffer));
     }
 }
